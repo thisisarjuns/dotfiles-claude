@@ -1,0 +1,248 @@
+{
+  "env": {
+    "CLAUDE_CODE_ENABLE_AUTO_MODE": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Grep",
+      "Bash(git:*)",
+      "Bash(find:*)",
+      "Bash(cfl:*)",
+      "Bash(gh:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(jtk:*)",
+      "Bash(ctk:*)",
+      "Bash(sed:*)",
+      "Bash(pbcopy:*)",
+      "Bash(afplay:*)",
+      "Bash(echo:*)",
+      "mcp__circleci-mcp-server__get_latest_pipeline_status",
+      "Read(/tmp/**)",
+      "Edit(/tmp/**)"
+    ],
+    "deny": [
+      "Read(*.Publish.xml)",
+      "Read(*.asc)",
+      "Read(*.backup)",
+      "Read(*.bak)",
+      "Read(*.cer)",
+      "Read(*.class)",
+      "Read(*.config)",
+      "Read(*.crt)",
+      "Read(*.csproj.user)",
+      "Read(*.db)",
+      "Read(*.dump)",
+      "Read(*.ear)",
+      "Read(*.egg-info/**)",
+      "Read(*.env)",
+      "Read(*.gpg)",
+      "Read(*.jar)",
+      "Read(*.jks)",
+      "Read(*.key)",
+      "Read(*.keystore)",
+      "Read(*.p12)",
+      "Read(*.pem)",
+      "Read(*.pfx)",
+      "Read(*.properties)",
+      "Read(*.pswd)",
+      "Read(*.pub)",
+      "Read(*.pwd)",
+      "Read(*.py[cod])",
+      "Read(*.rbc)",
+      "Read(*.sess)",
+      "Read(*.session)",
+      "Read(*.signingkey)",
+      "Read(*.sln.docstates)",
+      "Read(*.sql.gz)",
+      "Read(*.sqlite)",
+      "Read(*.sqlite3)",
+      "Read(*.suo)",
+      "Read(*.user)",
+      "Read(*.userosscache)",
+      "Read(*.vbproj.user)",
+      "Read(*.war)",
+      "Read(*kubeconfig*)",
+      "Read(*passwd*)",
+      "Read(*password*)",
+      "Read(.DS_Store)",
+      "Read(.Python)",
+      "Read(.Spotlight-V100)",
+      "Read(.Trashes)",
+      "Read(._*)",
+      "Read(.aws/**)",
+      "Read(.bash_history)",
+      "Read(.bundle/**)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(.env.development.local)",
+      "Read(.env.local)",
+      "Read(.env.production.local)",
+      "Read(.env.test.local)",
+      "Read(.env/**)",
+      "Read(.envrc)",
+      "Read(.gemtags)",
+      "Read(.gradle/**)",
+      "Read(.irbrc)",
+      "Read(.lesshst)",
+      "Read(.mysql_history)",
+      "Read(.npmrc)",
+      "Read(.psql_history)",
+      "Read(.python_history)",
+      "Read(.settings)",
+      "Read(.venv/**)",
+      "Read(.yarn/**)",
+      "Read(.yarnrc)",
+      "Read(.zsh_history)",
+      "Read(Desktop.ini)",
+      "Read(ENV/**)",
+      "Read(Thumbs.db)",
+      "Read(__pycache__/**)",
+      "Read(access_key*)",
+      "Read(appsettings.Development.json)",
+      "Read(auth.*)",
+      "Read(authentication.*)",
+      "Read(aws.json)",
+      "Read(aws_secrets.yml)",
+      "Read(azure_credentials.json)",
+      "Read(azure_service_principal.json)",
+      "Read(config.json)",
+      "Read(config.php)",
+      "Read(credential.*)",
+      "Read(credentials.*)",
+      "Read(ehthumbs.db)",
+      "Read(env.local)",
+      "Read(id_dsa)",
+      "Read(id_ecdsa)",
+      "Read(id_ed25519)",
+      "Read(id_rsa)",
+      "Read(key.*)",
+      "Read(keys.*)",
+      "Read(local.properties)",
+      "Read(local_settings.py)",
+      "Read(node_modules/**)",
+      "Read(npm-debug.log*)",
+      "Read(phpunit.xml)",
+      "Read(private_key*)",
+      "Read(secret.*)",
+      "Read(secret_key*)",
+      "Read(secrets.*)",
+      "Read(secrets.json)",
+      "Read(secrets.xml)",
+      "Read(secrets.yaml)",
+      "Read(secrets.yml)",
+      "Read(settings.local.php)",
+      "Read(token.*)",
+      "Read(tokens.*)",
+      "Read(venv/**)",
+      "Read(wp-config.php)",
+      "Read(yarn-debug.log*)",
+      "Read(yarn-error.log*)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/claude-sync.sh",
+            "timeout": 20,
+            "statusMessage": "Syncing ~/.claude to git..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node $HOME/.claude/hud/omc-hud.mjs"
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "code-simplifier@claude-plugins-official": true,
+    "drawio@365-skills": true,
+    "github@claude-plugins-official": true,
+    "i-have-adhd@i-have-adhd": true,
+    "oh-my-claudecode@omc": true,
+    "ponytail@ponytail": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "reflexion@context-engineering-kit": true,
+    "revdiff@revdiff": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "365-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Agents365-ai/365-skills"
+      }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "context-engineering-kit": {
+      "source": {
+        "source": "github",
+        "repo": "NeoLabHQ/context-engineering-kit"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    },
+    "omc": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Yeachan-Heo/oh-my-claudecode.git"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "revdiff": {
+      "source": {
+        "source": "github",
+        "repo": "umputun/revdiff"
+      }
+    }
+  },
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true
+}

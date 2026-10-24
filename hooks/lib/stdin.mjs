@@ -1,0 +1,1 @@
+/Users/arjunsunil/.claude/plugins/cache/omc/oh-my-claudecode/5.7.5/templates/hooks/lib/stdin.mjs
